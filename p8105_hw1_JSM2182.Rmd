@@ -7,13 +7,18 @@ output: github_document
 
 # Problem 1 
 
-Load packages 
+Load packages (below) & installed _penguins_ dataset (not shown)
 
-```{r}
+```{r library, message = FALSE}
 library(tidyverse)
-library(dyplyr)
+library(dplyr)
 ```
 
 
-# Problem 2
+```{r load_penguins}
+
+data("penguins", package = "palmerpenguins")
+```
+
+The _penguins_ dataset contains geographic and demographic data on individuals belonging to different species of penguins. There are `r nrow(penguins)` individual penguins and `r ncol(penguins)` variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. 
 
