@@ -29,12 +29,59 @@ The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm
 
 
 
+
 ```{r penguins_scatterplot, message = FALSE, warning = FALSE}
 
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() + xlab("Bill Length (mm)") + ylab("Flipper length (mm)") + ggtitle("Gentoo sp. have longer bills and flipper lengths than Adelie and Chinstrap species")
 
-ggsave("BillxFlipperLengthxSpecies.PDF", height = 4, width = 6)
+ggsave("BillxFlipperLengthxSpecies.PDF", height = 4, width = 10)
 
 ```
 
+
+# Problem 2
+
+```{r sample_df, message = FALSE}
+sample_df = 
+  tibble(
+  var_rand = rnorm(n = 10,mean = 0),
+  var_logic = var_rand > 0, 
+  var_char = c("a", "b","c","d", "a", "b", "b", "c", "d","a"),
+  var_factor = factor(var_char, levels = c("a","b","c", "d"), ordered = TRUE)
+  )
+```
+
+
+```{r}
+print(sample_df)
+```
+ Above is a dataframe comprised of: 
+- a random sample of size 10 from a standard Normal distribution
+- a logical vector indicating whether elements of the sample are greater than 0
+- a character vector of length 10
+- a factor vector of length 10, with 3 different factor “levels”
+
+```{r pulling_var}
+
+var_rand_pull <- sample_df %>% pull(var_rand) #is it best practice to name a pulled variable or simply reuse? It's okay to reuse but could rename something else
+var_logic_pull <- sample_df %>% pull(var_logic) #why is this providing an answer?
+var_char_pull <- sample_df %>% pull(var_char)
+var_factor_pull <- sample_df %>%  pull(var_factor)
+```
+ The mean of var_rand is `r mean(var_rand_pull)`
+ The mean of var_logic is `r mean(var_logic_pull)`
+ The mean of var_char is `r mean(var_char_pull)`
+ The mean of var_factor is `r mean(var_factor_pull)`
+ 
+ 
+```{r coercion}
+
+var_char_num <- as.numeric(var_char_pull)
+var_factor_num <- as.numeric(var_factor_pull)
+mean(var_factor_num)
+mean(var_char_num)
+
+```
+ 
+ 
 
