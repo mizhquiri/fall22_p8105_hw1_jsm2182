@@ -29,10 +29,11 @@ The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm
 
 
 
-```{r penguins_scatterplot}
+```{r penguins_scatterplot, message = FALSE, warning = FALSE}
 
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() + xlab("Bill Length (mm)") + ylab("Flipper length (mm)") + ggtitle("Gentoo sp. have longer bills and flipper lengths than Adelie and Chinstrap species")
 
+ggsave("BillxFlipperLengthxSpecies.PDF", height = 4, width = 6)
 
 ```
 
