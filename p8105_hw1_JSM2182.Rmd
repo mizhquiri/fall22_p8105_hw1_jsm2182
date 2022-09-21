@@ -18,7 +18,22 @@ library(dplyr)
 ```{r load_penguins}
 
 data("penguins", package = "palmerpenguins")
+
+head(penguins)
+
 ```
 
-The _penguins_ dataset contains geographic and demographic data on individuals belonging to different species of penguins. There are `r nrow(penguins)` individual penguins and `r ncol(penguins)` variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. 
+A preview of the _penguins_ dataset is displayed above. It contains geographic and demographic data on individuals belonging to different species of penguins. There are `r nrow(penguins)` records and `r ncol(penguins)` variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. 
+
+The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm
+
+
+
+```{r penguins_scatterplot}
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+
+```
+
 
