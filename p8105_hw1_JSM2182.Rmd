@@ -5,9 +5,7 @@ output: github_document
 ---
 
 
-
-
-The following packages are being used:
+The following package will be necessary:
 
 ```{r library, message = FALSE}
 library(tidyverse)
@@ -36,7 +34,8 @@ bill_length_pull <- penguins %>% pull(bill_length_mm)
 A preview of the _penguins_ dataset is displayed above. It contains geographic and demographic data on individual penguins belonging to different species of penguins. There are `r nrow(penguins)` rows and `r ncol(penguins)` columns: species (species), island (island), bill_length_mm (bill length in mm), bill_depth_mm (bill depth in mm), flipper_length_mm (flipper length in mm), body_mass_g (body mass in grams), sex (sex), and year (year). From here, summary statistics could be extracted. The mean flipper length is `r mean((flipper_length_pull), na.rm = TRUE)` mm. The mean bill length is `r mean((bill_length_pull), na.rm = TRUE)` mm.
 
 
-```{r penguins_scatterplot, message = FALSE, warning = FALSE}
+ _Scatterplot Comparing Bill and Flipper Lengths in Penguins_
+```{r penguins_scatterplot, echo = FALSE, message = FALSE, warning = FALSE}
 
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() + xlab("Bill Length (mm)") + ylab("Flipper length (mm)") + ggtitle("Comparing Penguin Flipper and Bill Lengths")
 
@@ -71,6 +70,7 @@ Above is a dataframe comprised of:
 * a factor vector of length 10, with 3 different factor “levels”
   * Note: this factor vector is a factor version of the character version, but has assigned levels to each of the possible values
 
+ _Below is a code chunk demonstrating how variables may be pulled._
 ```{r pulling_var}
 
 var_rand_pull <- sample_df %>% pull(var_rand) 
