@@ -5,17 +5,18 @@ output: github_document
 ---
 
 
-# Problem 1 
 
-Load packages (below) & installed _penguins_ dataset (not shown)
+
+The following packages are being used:
 
 ```{r library, message = FALSE}
 library(tidyverse)
 library(dplyr)
 ```
 
+# Problem 1 
 
-```{r load_penguins}
+```{r load_penguins, echo=FALSE}
 
 data("penguins", package = "palmerpenguins")
 
@@ -32,7 +33,7 @@ The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm
 
 ```{r penguins_scatterplot, message = FALSE, warning = FALSE}
 
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() + xlab("Bill Length (mm)") + ylab("Flipper length (mm)") + ggtitle("Comparing Penguing Flipper and Bill Lengths")
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() + xlab("Bill Length (mm)") + ylab("Flipper length (mm)") + ggtitle("Comparing Penguin Flipper and Bill Lengths")
 
 ggsave("BillxFlipperLengthxSpecies.PDF", height = 4, width = 10)
 
@@ -42,7 +43,7 @@ On average, Gentoo sp. have longer bills and flipper lengths than Adelie and Chi
 
 # Problem 2
 
-```{r sample_df, message = FALSE}
+```{r sample_df, message = FALSE, echo = FALSE}
 sample_df = 
   tibble(
   var_rand = rnorm(n = 10,mean = 0),
@@ -53,7 +54,7 @@ sample_df =
 ```
 
 
-```{r}
+```{r, echo = FALSE}
 print(sample_df)
 ```
 
@@ -84,7 +85,7 @@ var_factor_pull <- sample_df %>%  pull(var_factor)
   * It makes sense that there is no available mean as the variables are made up of levels but even so it is not numeric. 
  
  
-```{r coercion, message = FALSE}
+```{r coercion, message = FALSE, echo = FALSE, warning = FALSE}
 
 var_char_num <- as.numeric(var_char_pull)
 var_factor_num <- as.numeric(var_factor_pull)
