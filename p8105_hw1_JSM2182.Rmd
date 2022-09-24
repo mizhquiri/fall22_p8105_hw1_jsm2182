@@ -11,7 +11,7 @@ The following packages are being used:
 
 ```{r library, message = FALSE}
 library(tidyverse)
-library(dplyr)
+
 ```
 
 # Problem 1 
